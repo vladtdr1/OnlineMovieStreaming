@@ -10,6 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
+<?import javafx.scene.control.PasswordField?>
 <GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.231" xmlns:fx="http://javafx.com/fxml" fx:controller="controller.Controller">
     <columnConstraints>
         <ColumnConstraints />
@@ -44,11 +45,11 @@
                     <Font size="24.0" />
                 </font>
                 </Text>
-                <TextField onAction="#onEnter" fx:id="passwordField" prefHeight="30.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                <PasswordField onAction="#onEnter" fx:id="passwordField" prefHeight="30.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                 <GridPane.margin>
                     <Insets left="10.0" right="50.0" />
                 </GridPane.margin>
-                </TextField>
+                </PasswordField>
                 <Button mnemonicParsing="false" onAction="#handleLoginButton" prefHeight="40.0" prefWidth="150.0" text="Login" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                 <GridPane.margin>
                     <Insets />
