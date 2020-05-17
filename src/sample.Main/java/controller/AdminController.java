@@ -12,5 +12,16 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class AdminController {
-
+    public void handleNewAccountButton(ActionEvent actionEvent) {
+        try {
+            Parent p= FXMLLoader.load(getClass().getResource("/fxml/newUser.fxml"));
+            Scene scene=new Scene(p,600,400);
+            Stage window=(Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+            window.setScene(scene);
+            window.show();
+        }catch(IOException e)
+        {
+            e.printStackTrace();
+        }
+    }
 }
