@@ -25,6 +25,11 @@ public class Controller {
     @FXML
     private Text loginResponse;
 
+    public void onEnter(ActionEvent ae){
+        handleLoginButton(ae);
+
+    }
+
     public void handleLoginButton(ActionEvent actionEvent) {
         try {
             setConnectedUser(checkUser(usernameField.getText(), passwordField.getText()));
@@ -49,9 +54,8 @@ public class Controller {
             if(getConnectedUser().getRole().equals("admin"))
             {//admin
                 Parent p= FXMLLoader.load(getClass().getResource("/fxml/admin.fxml"));
-                Scene scene=new Scene(p,500,300);
+                Scene scene=new Scene(p,600,400);
                 Stage window=(Stage)((Node)actionEvent.getSource()).getScene().getWindow();
-                window.setTitle("Esti un admin!");
                 window.setScene(scene);
                 window.show();
             }
