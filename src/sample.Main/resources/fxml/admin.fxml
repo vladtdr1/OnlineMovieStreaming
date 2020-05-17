@@ -18,7 +18,7 @@
             <TableColumn fx:id="editColumn" minWidth="9.0" prefWidth="83.0" text=" " />
         </columns>
       </TableView>
-      <Button layoutX="445.0" layoutY="24.0" mnemonicParsing="false"  prefHeight="26.0" prefWidth="122.0" text="New Account" />
+      <Button layoutX="445.0" layoutY="24.0" mnemonicParsing="false" onAction="#handleNewAccountButton" prefHeight="26.0" prefWidth="122.0" text="New Account" />
       <Text fill="#0000005d" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Administrator Panel" wrappingWidth="203.17724609375">
          <font>
             <Font name="System Font" size="19.0" />
