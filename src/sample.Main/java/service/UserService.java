@@ -28,6 +28,10 @@ public class UserService {
     private static List<User> users;
     private static User connectedUser;
 
+    public static List<User> getUsers() {
+        return users;
+    }
+
     public static User getConnectedUser() {
         return connectedUser;
     }
