@@ -6,12 +6,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import static service.MovieService.loadMoviesFromFile;
 import static service.UserService.loadUsersFromFile;
 
 public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+        loadMoviesFromFile();
         loadUsersFromFile();
         /*addUser("viewer","viewer","viewer@viewrw.viewer","viewer);
         addUser("uploader","uploader","uploader@uploader.uploader","uploader);

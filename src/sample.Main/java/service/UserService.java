@@ -53,6 +53,14 @@ public class UserService {
         persistUsers();
     }
 
+    public static void removeUser(User u)
+    {
+        if(u.getRole().equals("uploader"))
+            u.removeAllUploads();
+        users.remove(u);
+        persistUsers();
+    }
+
     private static void checkUserDoesNotAlreadyExist(String username) throws UsernameAlreadyExistsException{
         for (User user : users) {
             if (Objects.equals(username, user.getUsername()))
