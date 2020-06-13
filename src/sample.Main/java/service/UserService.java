@@ -55,6 +55,8 @@ public class UserService {
 
     public static void removeUser(User u)
     {
+        if(u.getRole().equals("uploader"))
+            u.removeAllUploads();
         users.remove(u);
         persistUsers();
     }

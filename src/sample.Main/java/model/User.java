@@ -1,5 +1,7 @@
 package model;
 
+import service.MovieService;
+
 import java.util.Objects;
 
 public class User {
@@ -68,4 +70,7 @@ public class User {
         return username.equals(user.username);
     }
 
+    public void removeAllUploads() {
+        MovieService.removeAllMovies(username);
+    }
 }
