@@ -24,6 +24,7 @@ import java.util.ResourceBundle;
 import static service.UserService.getUsers;
 
 public class AdminController implements Initializable {
+    private static Stage stage;
     private static User selectedUser;
     @FXML
     private TableView<User> userTable;
@@ -35,6 +36,11 @@ public class AdminController implements Initializable {
     private TableColumn<User, String> roleColumn;
     @FXML
     private TableColumn<String, String> editColumn;
+
+    public static Stage getStage() {
+        return stage;
+    }
+
     public void initialize(URL url, ResourceBundle r){
         usernameColumn.setCellValueFactory(new PropertyValueFactory<User, String >("username"));
         emailColumn.setCellValueFactory(new PropertyValueFactory<User, String >("email"));
@@ -72,6 +78,7 @@ public class AdminController implements Initializable {
         if(selectedUser!=null)
         {
             try {
+                stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
                 Parent p= FXMLLoader.load(getClass().getResource("/fxml/confirmationPrompt.fxml"));
                 Scene scene=new Scene(p,200,100);
                 Stage window=new Stage();
