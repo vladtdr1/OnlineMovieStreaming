@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="100.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PromptController">
+<AnchorPane prefHeight="100.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/8.0.241" xmlns:fx="http://javafx.com/fxml" fx:controller="controller.PromptController">
 
     <Button layoutX="15.0" layoutY="60.0" mnemonicParsing="false" onAction="#handleYesButton" prefHeight="26.0" prefWidth="71.0" text="YES" />
     <Button layoutX="115.0" layoutY="60.0" mnemonicParsing="false" onAction="#handleNoButton" prefHeight="26.0" prefWidth="71.0" text="NO" />
