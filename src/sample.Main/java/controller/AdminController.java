@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import model.User;
 
@@ -23,6 +24,7 @@ import java.util.ResourceBundle;
 import static service.UserService.getUsers;
 
 public class AdminController implements Initializable {
+    private static User selectedUser;
     @FXML
     private TableView<User> userTable;
     @FXML
@@ -41,7 +43,8 @@ public class AdminController implements Initializable {
         List<User> users = getUsers();
         ObservableList<User> UserList = FXCollections.observableArrayList();
         for(User u: users)
-            UserList.add(u);
+            if(!u.getRole().equals("admin"))
+                UserList.add(u);
         userTable.setItems(UserList);
     }
     public void handleNewAccountButton(ActionEvent actionEvent) {
@@ -54,6 +57,29 @@ public class AdminController implements Initializable {
         }catch(IOException e)
         {
             e.printStackTrace();
+        }
+    }
+
+    public static User getSelectedUser() {
+        return selectedUser;
+    }
+
+    public void handleMouseClicked(MouseEvent mouseEvent) {
+        selectedUser=userTable.getSelectionModel().getSelectedItem();
+    }
+
+    public void handleDeleteAccountButton(ActionEvent actionEvent) {
+        if(selectedUser!=null)
+        {
+            try {
+                Parent p= FXMLLoader.load(getClass().getResource("/fxml/confirmationPrompt.fxml"));
+                Scene scene=new Scene(p,200,100);
+                Stage window=new Stage();
+                window.setScene(scene);
+                window.show();
+            }catch(IOException e){
+                e.printStackTrace();
+            }
         }
     }
 }
