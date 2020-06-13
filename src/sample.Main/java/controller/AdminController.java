@@ -34,8 +34,6 @@ public class AdminController implements Initializable {
     private TableColumn<User, String> emailColumn;
     @FXML
     private TableColumn<User, String> roleColumn;
-    @FXML
-    private TableColumn<String, String> editColumn;
 
     public static Stage getStage() {
         return stage;
@@ -45,7 +43,6 @@ public class AdminController implements Initializable {
         usernameColumn.setCellValueFactory(new PropertyValueFactory<User, String >("username"));
         emailColumn.setCellValueFactory(new PropertyValueFactory<User, String >("email"));
         roleColumn.setCellValueFactory(new PropertyValueFactory<User, String>("role"));
-        editColumn.setCellValueFactory(new PropertyValueFactory<String, String >("edit"));
         List<User> users = getUsers();
         ObservableList<User> UserList = FXCollections.observableArrayList();
         for(User u: users)

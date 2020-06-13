@@ -16,7 +16,9 @@ public class MovieService {
     private static List<Movie> movies;
     private static User connectedUser;
 
-
+    public static List<Movie> getMovies() {
+        return movies;
+    }
 
     public static void loadMoviesFromFile() throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
