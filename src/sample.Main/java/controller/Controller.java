@@ -36,7 +36,7 @@ public class Controller {
             if(getConnectedUser().getRole().equals("viewer"))
             {//viewer
                 Parent p= FXMLLoader.load(getClass().getResource("/fxml/viewer.fxml"));
-                Scene scene=new Scene(p,500,300);
+                Scene scene=new Scene(p,600,400);
                 Stage window=(Stage)((Node)actionEvent.getSource()).getScene().getWindow();
                 window.setTitle("Esti un viewer!");
                 window.setScene(scene);
@@ -45,7 +45,7 @@ public class Controller {
             if(getConnectedUser().getRole().equals("uploader"))
             {//uploader
                 Parent p= FXMLLoader.load(getClass().getResource("/fxml/uploader.fxml"));
-                Scene scene=new Scene(p,500,300);
+                Scene scene=new Scene(p,600,400);
                 Stage window=(Stage)((Node)actionEvent.getSource()).getScene().getWindow();
                 window.setTitle("Esti un uploader!");
                 window.setScene(scene);
