@@ -9,6 +9,7 @@ import model.User;
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.Objects;
 
 
 public class MovieService {
@@ -26,13 +27,13 @@ public class MovieService {
         });
     }
 
-    //public static void addMovie(String username, String password, String email,String role) throws UsernameAlreadyExistsException,UsernameFieldEmptyException,PasswordFieldEmptyException{
-        /*checkUserFieldIsNotEmpty(username);
-        checkPasswordFieldIsNotEmpty(password);
-        checkUserDoesNotAlreadyExist(username);
-        users.add(new User(username, encodePassword(username, password), email,role));
-        persistUsers();*/  // to be implemented
-    //}
+    public static void addMovie(String title, String url, String genre,String description, String uploader, String year) throws TitleFieldEmptyException, UrlFieldEmptyException, MovieAlreadyExistsException {
+        checkTitleFieldIsNotEmpty(title);
+        checkUrlFieldIsNotEmpty(url);
+        checkMovieDoesNotAlreadyExist(title);
+        movies.add(new Movie(uploader,title,year,genre,url,description));
+        persistMovies();
+    }
 
     public static void removeAllMovies(final String username)
     {
@@ -40,17 +41,23 @@ public class MovieService {
         persistMovies();
     }
 
-    /*private static void checkMovieDoesNotAlreadyExist(String title) throws MovieAlreadyExistsException{
+    private static void checkMovieDoesNotAlreadyExist(String title) throws MovieAlreadyExistsException{
         for (Movie m : movies) {
             if (Objects.equals(title, m.getTitle()))
                 throw new MovieAlreadyExistsException();
         }
     }
+
     private static void checkTitleFieldIsNotEmpty(String title) throws TitleFieldEmptyException{
         if(title.equals(""))
             throw new TitleFieldEmptyException();
     }
-    */
+
+    private static void checkUrlFieldIsNotEmpty(String url) throws UrlFieldEmptyException{
+        if(url.equals(""))
+            throw new UrlFieldEmptyException();
+    }
+
     private static void persistMovies() {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
