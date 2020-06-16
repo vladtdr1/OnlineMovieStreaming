@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.WatchMovieController">
+   <children>
+      <Text fx:id="descriptionText" layoutX="29.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="557.22900390625" />
+      <Text fx:id="uploaderText" layoutX="447.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="130.22900390625" />
+      <Text fx:id="genreText" layoutX="221.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="173.22900390625" />
+      <Text fx:id="titleText" layoutX="21.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="190.2290039062501" />
+      <Text fx:id="urlText" layoutX="29.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="557.22900390625" />
+   </children>
+</AnchorPane>

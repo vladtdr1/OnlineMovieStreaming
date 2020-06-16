@@ -7,13 +7,8 @@ import model.Movie;
 import model.User;
 
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Paths;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.List;
-import java.util.Objects;
-
 
 
 public class MovieService {
@@ -21,7 +16,9 @@ public class MovieService {
     private static List<Movie> movies;
     private static User connectedUser;
 
-
+    public static List<Movie> getMovies() {
+        return movies;
+    }
 
     public static void loadMoviesFromFile() throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
@@ -39,7 +36,7 @@ public class MovieService {
 
     public static void removeAllMovies(final String username)
     {
-        while(movies.remove(new Movie(username,"","","","")));
+        while(movies.remove(new Movie(username,"","","","", "")));
         persistMovies();
     }
 
