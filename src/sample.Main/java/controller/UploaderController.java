@@ -80,7 +80,6 @@ public class UploaderController implements Initializable {
 
     public void handleMouseClicked(MouseEvent mouseEvent) {
         selectedMovie = movieTable.getSelectionModel().getSelectedItem();
-        System.out.println(selectedMovie);
         if (mouseEvent.getClickCount() > 1) {
             try {
                 Parent p = FXMLLoader.load(getClass().getResource("/fxml/editMovie.fxml"));

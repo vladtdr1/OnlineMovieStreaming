@@ -32,13 +32,15 @@ public class MovieService {
     public static void addMovie(String title, String url, String genre,String description, String uploader, String year) throws TitleFieldEmptyException, UrlFieldEmptyException, MovieAlreadyExistsException {
         checkTitleFieldIsNotEmpty(title);
         checkUrlFieldIsNotEmpty(url);
-        checkMovieDoesNotAlreadyExist(title);
+        checkMovieDoesNotAlreadyExist(title,null);
         movies.add(new Movie(uploader,title,year,genre,url,description));
         persistMovies();
     }
 
-    public static void editMovie(Movie movie, String description, String title, String url, String year, String genre)
-    {
+    public static void editMovie(Movie movie, String description, String title, String url, String year, String genre) throws TitleFieldEmptyException, UrlFieldEmptyException, MovieAlreadyExistsException {
+        checkTitleFieldIsNotEmpty(title);
+        checkUrlFieldIsNotEmpty(url);
+        checkMovieDoesNotAlreadyExist(title,title);
         movie.setDescription(description);
         movie.setTitle(title);
         movie.setUrl(url);
@@ -52,10 +54,11 @@ public class MovieService {
         persistMovies();
     }
 
-    private static void checkMovieDoesNotAlreadyExist(String title) throws MovieAlreadyExistsException{
+    private static void checkMovieDoesNotAlreadyExist(String title, String oldTitle) throws MovieAlreadyExistsException{
         for (Movie m : movies) {
             if (Objects.equals(title, m.getTitle()))
-                throw new MovieAlreadyExistsException();
+                if(!title.equals(oldTitle))
+                    throw new MovieAlreadyExistsException();
         }
     }
 
