@@ -21,8 +21,16 @@ public class MovieService {
     private static List<Request> requests;
     private static User connectedUser;
 
+    public static List<Request> getRequests() { return requests; }
+
     public static List<Movie> getMovies() {
         return movies;
+    }
+
+    public static void removeRequest(final String title)
+    {
+        while(requests.remove(new Request("",title,"")));
+        persistRequests();
     }
 
     public static void loadMoviesFromFile() throws IOException {

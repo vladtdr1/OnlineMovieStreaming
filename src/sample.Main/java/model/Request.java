@@ -48,6 +48,11 @@ public class Request {
                 "'}";
     }
 
-
-
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Request request = (Request) o;
+        return Objects.equals(title, request.title);
+    }
 }
