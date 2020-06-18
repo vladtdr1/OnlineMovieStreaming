@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import static service.MovieService.loadMoviesFromFile;
+import static service.MovieService.loadRequestsFromFile;
 import static service.UserService.loadUsersFromFile;
 
 public class Main extends Application {
@@ -15,6 +16,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         loadMoviesFromFile();
         loadUsersFromFile();
+        loadRequestsFromFile();
         /*addUser("viewer","viewer","viewer@viewrw.viewer","viewer);
         addUser("uploader","uploader","uploader@uploader.uploader","uploader);
         addUser("admin","admin","admin@admin.admin","admin);*///(added placeholder accs)
