@@ -18,7 +18,7 @@ import java.io.IOException;
 
 import static service.UserService.*;
 
-public class Controller {
+public class LoginController {
     @FXML
     private TextField usernameField;
     @FXML

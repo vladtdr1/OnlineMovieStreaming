@@ -20,8 +20,8 @@ public class Main extends Application {
         /*addUser("viewer","viewer","viewer@viewrw.viewer","viewer);
         addUser("uploader","uploader","uploader@uploader.uploader","uploader);
         addUser("admin","admin","admin@admin.admin","admin);*///(added placeholder accs)
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/sample.fxml"));
-        primaryStage.setTitle("Movie Streaming Platform");
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/login.fxml"));
+        primaryStage.setTitle("Movie Streaming Platform login");
         primaryStage.setScene(new Scene(root, 500, 300));
         primaryStage.show();
     }
