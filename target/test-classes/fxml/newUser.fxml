@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.241"
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.231"
             xmlns:fx="http://javafx.com/fxml" fx:controller="controller.NewUser">
     <Button layoutX="84.0" layoutY="334.0" mnemonicParsing="false" onAction="#cancelButton" prefHeight="27.0"
             prefWidth="111.0" text="Cancel"/>
@@ -26,9 +26,9 @@
         </items>
     </ChoiceBox>
 
-    <TextField fx:id="passwordText" layoutX="205.0" layoutY="187.0" prefHeight="27.0" prefWidth="256.0"/>
-    <TextField fx:id="emailText" layoutX="205.0" layoutY="134.0" prefHeight="27.0" prefWidth="256.0"/>
-    <TextField fx:id="usernameText" layoutX="205.0" layoutY="81.0" prefHeight="27.0" prefWidth="256.0"/>
+    <TextField onAction="#onEnter" fx:id="passwordText" layoutX="205.0" layoutY="187.0" prefHeight="27.0" prefWidth="256.0"/>
+    <TextField onAction="#onEnter" fx:id="emailText" layoutX="205.0" layoutY="134.0" prefHeight="27.0" prefWidth="256.0"/>
+    <TextField onAction="#onEnter" fx:id="usernameText" layoutX="205.0" layoutY="81.0" prefHeight="27.0" prefWidth="256.0"/>
     <Text layoutX="64.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username">
         <font>
           <Font size="20.0"/>

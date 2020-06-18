@@ -39,9 +39,11 @@ public class UploaderController implements Initializable {
     @FXML
     private TableColumn<Movie, String> genreColumn;
 
+    private static Stage stage;
     private static Movie selectedMovie;
-    public static Movie getSelectedMovie() {
-        return selectedMovie;
+
+    public static Stage getStage() {
+        return stage;
     }
 
     public void initialize(URL url, ResourceBundle r){
@@ -54,21 +56,6 @@ public class UploaderController implements Initializable {
             if(m.getUploader().equals(getConnectedUser().getUsername()))
                 MovieList.add(m);
         movieTable.setItems(MovieList);
-    }
-    public void handleMouseClicked(MouseEvent mouseEvent) { //click on table
-        /*
-        selectedMovie=movieTable.getSelectionModel().getSelectedItem();
-        if(mouseEvent.getClickCount()>1&&selectedMovie!=null)
-            try {
-                Parent p= FXMLLoader.load(getClass().getResource("/fxml/watchMovie.fxml"));
-                Scene scene=new Scene(p,600,400);
-                Stage window=(Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
-                window.setScene(scene);
-                window.show();
-            }catch(IOException e)
-            {
-                e.printStackTrace();
-            }*/
     }
 
     public void handleRefresh(ActionEvent mouseEvent) {
@@ -89,5 +76,24 @@ public class UploaderController implements Initializable {
         {
             e.printStackTrace();
         }
+    }
+
+    public static Movie getSelectedMovie() {
+        return selectedMovie;
+    }
+
+    public void handleMouseClicked(MouseEvent mouseEvent) {
+        selectedMovie=movieTable.getSelectionModel().getSelectedItem();
+        System.out.println(selectedMovie);
+       /*try {
+            stage = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
+            Parent p= FXMLLoader.load(getClass().getResource("/fxml/confirmationPrompt.fxml"));
+            Scene scene=new Scene(p,200,100);
+            Stage window=new Stage();
+            window.setScene(scene);
+            window.show();
+        }catch(IOException e){
+            e.printStackTrace();
+        }*/
     }
 }
