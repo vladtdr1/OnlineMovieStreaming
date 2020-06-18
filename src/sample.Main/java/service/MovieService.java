@@ -11,6 +11,8 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.Objects;
 
+import static controller.UploaderController.getSelectedMovie;
+
 
 public class MovieService {
 
@@ -35,6 +37,15 @@ public class MovieService {
         persistMovies();
     }
 
+    public static void editMovie(Movie movie, String description, String title, String url, String year, String genre)
+    {
+        movie.setDescription(description);
+        movie.setTitle(title);
+        movie.setUrl(url);
+        movie.setLaunchyear(year);
+        movie.setGenre(genre);
+        persistMovies();
+    }
     public static void removeAllMovies(final String username)
     {
         while(movies.remove(new Movie(username,"","","","", "")));
