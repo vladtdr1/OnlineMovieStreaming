@@ -18,8 +18,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import static controller.UploaderController.getSelectedMovie;
-import static service.MovieService.addMovie;
-import static service.MovieService.persistMovies;
+import static service.MovieService.*;
 import static service.UserService.getConnectedUser;
 
 public class EditMovie implements Initializable {
@@ -53,6 +52,7 @@ public class EditMovie implements Initializable {
 
     public void okButton(ActionEvent actionEvent) {
         try {
+            editMovie(getSelectedMovie(),descriptionText.getText(),titleText.getText(),urlText.getText(),yearText.getText(),(String)genreText.getValue());
             Parent p= FXMLLoader.load(getClass().getResource("/fxml/uploader.fxml"));
             Scene scene=new Scene(p,600,400);
             Stage window=(Stage)((Node)actionEvent.getSource()).getScene().getWindow();
