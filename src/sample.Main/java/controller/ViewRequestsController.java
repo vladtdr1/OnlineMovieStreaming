@@ -23,8 +23,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import static service.MovieService.getMovies;
-import static service.MovieService.getRequests;
+import static service.MovieService.*;
 
 public class ViewRequestsController implements Initializable {
 
@@ -46,26 +45,23 @@ public class ViewRequestsController implements Initializable {
         requestTable.setItems(RequestList);
     }
     public void handleMouseClicked(MouseEvent mouseEvent) {
-        /*
         selectedRequest=requestTable.getSelectionModel().getSelectedItem();
-        if(mouseEvent.getClickCount()>1&&selectedRequest!=null)
-            try {
-                Parent p= FXMLLoader.load(getClass().getResource("/fxml/watchMovie.fxml"));
-                Scene scene=new Scene(p,600,400);
-                Stage window=(Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
-                window.setScene(scene);
-                window.show();
-            }catch(IOException e)
-            {
-                e.printStackTrace();
-            }
-         */
-    }
-
-    public void handleRefresh(ActionEvent mouseEvent) {
-        initialize(null,null);
     }
 
     public void handleSolveRequest(ActionEvent actionEvent) {
+        removeRequest(selectedRequest.getTitle());
+        initialize(null,null);
+    }
+
+    public void handleBackButton(ActionEvent actionEvent) {
+        try {
+            Parent p = FXMLLoader.load(getClass().getResource("/fxml/uploader.fxml"));
+            Scene scene = new Scene(p, 600, 400);
+            Stage window = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            window.setScene(scene);
+            window.show();
+        }catch(IOException e){
+            e.printStackTrace();
+        }
     }
 }

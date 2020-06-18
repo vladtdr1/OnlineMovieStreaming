@@ -27,6 +27,12 @@ public class MovieService {
         return movies;
     }
 
+    public static void removeRequest(final String title)
+    {
+        while(requests.remove(new Request("",title,"")));
+        persistRequests();
+    }
+
     public static void loadMoviesFromFile() throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         movies = objectMapper.readValue(Paths.get("src/sample.Main/java/sample/json/movies.json").toFile(), new TypeReference<List<Movie>>() {

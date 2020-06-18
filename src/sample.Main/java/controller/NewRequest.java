@@ -28,7 +28,7 @@ public class NewRequest {
 
     public void cancelButton(ActionEvent actionEvent) {
         try {
-            Parent p= FXMLLoader.load(getClass().getResource("/fxml/uploader.fxml"));
+            Parent p= FXMLLoader.load(getClass().getResource("/fxml/viewer.fxml"));
             Scene scene=new Scene(p,600,400);
             Stage window=(Stage)((Node)actionEvent.getSource()).getScene().getWindow();
             window.setScene(scene);
@@ -42,7 +42,7 @@ public class NewRequest {
     public void okButton(ActionEvent actionEvent) {
         try {
             addMovieRequest(titleText.getText(),getConnectedUser().getUsername(),yearText.getText());
-            Parent p= FXMLLoader.load(getClass().getResource("/fxml/uploader.fxml"));
+            Parent p= FXMLLoader.load(getClass().getResource("/fxml/viewer.fxml"));
             Scene scene=new Scene(p,600,400);
             Stage window=(Stage)((Node)actionEvent.getSource()).getScene().getWindow();
             window.setScene(scene);
