@@ -4,9 +4,10 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
+<?import java.lang.String?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.231" xmlns:fx="http://javafx.com/fxml" fx:controller="controller.UploaderController">
     <TableView fx:id="movieTable" layoutY="64.0" onMouseClicked="#handleMouseClicked" prefHeight="329.0" prefWidth="600.0">
         <columns>
@@ -15,11 +16,12 @@
             <TableColumn fx:id="genreColumn" prefWidth="205.0" text="Genre" />
         </columns>
     </TableView>
-    <Text fill="#0000005d" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Uploader Panel" wrappingWidth="203.17724609375">
-        <font>
-            <Font name="System Font" size="19.0" />
-        </font>
-    </Text>
-   <Button layoutX="483.0" layoutY="25.0" mnemonicParsing="false" onAction="#handleViewRequestsButton" text="VIEW REQUESTS" />
-   <Button layoutX="385.0" layoutY="25.0" mnemonicParsing="false" onAction="#handleAddMovieButton" text="ADD MOVIE" />
+    <ImageView fx:id="LOGOutIMG" fitHeight="65.0" fitWidth="173.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@../logo/LOGO.png" />
+    </ImageView>
+   <Button layoutX="483.0" layoutY="25.0" mnemonicParsing="false" onAction="#handleViewRequestsButton" text="View Requests" />
+   <Button layoutX="385.0" layoutY="25.0" mnemonicParsing="false" onAction="#handleAddMovieButton" text="Add Movie" />
+    <stylesheets>
+        <String fx:value="/Style.css" />
+    </stylesheets>
 </AnchorPane>
