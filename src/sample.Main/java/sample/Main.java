@@ -22,7 +22,8 @@ public class Main extends Application {
         addUser("admin","admin","admin@admin.admin","admin);*///(added placeholder accs)
 
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/login.fxml"));
-        primaryStage.setTitle("Movie Streaming Platform login");
+        primaryStage.setTitle("FletNix login");
+        primaryStage.setResizable(false);
         Scene scene = new Scene(root, 500, 300);
         scene.getStylesheets().add("Style.css");
         primaryStage.setScene(scene);
