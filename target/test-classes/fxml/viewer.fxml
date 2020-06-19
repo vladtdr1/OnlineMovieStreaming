@@ -33,4 +33,7 @@
     </items>
     </ChoiceBox>
    <Button layoutX="346.0" layoutY="25.0" mnemonicParsing="false" onAction="#handleAddRequest" text="Add Request" />
+    <stylesheets>
+        <String fx:value="/Style.css" />
+    </stylesheets>
 </AnchorPane>
