@@ -57,6 +57,10 @@
          <Font size="20.0" />
       </font>
    </Text>
-    <Button layoutX="84.0" layoutY="334.0" mnemonicParsing="false" onAction="#cancelButton" prefHeight="27.0" prefWidth="111.0" text="Cancel" />
-    <Button layoutX="406.0" layoutY="334.0" mnemonicParsing="false" onAction="#okButton" prefHeight="27.0" prefWidth="111.0" text="OK" />
+    <Button layoutX="46.0" layoutY="348.0" mnemonicParsing="false" onAction="#cancelButton" prefHeight="27.0" prefWidth="111.0" text="Cancel" />
+    <Button layoutX="454.0" layoutY="348.0" mnemonicParsing="false" onAction="#okButton" prefHeight="27.0" prefWidth="111.0" text="OK" />
+   <Button layoutX="165.0" layoutY="348.0" mnemonicParsing="false" onAction="#deleteButton" prefHeight="27.0" prefWidth="111.0" text="Delete Movie" />
+    <stylesheets>
+        <String fx:value="/Style.css" />
+    </stylesheets>
 </AnchorPane>

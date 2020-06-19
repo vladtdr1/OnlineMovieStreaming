@@ -4,8 +4,9 @@
 <?import javafx.collections.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ViewerController">
     <TableView fx:id="movieTable" layoutY="64.0" onMouseClicked="#handleMouseClicked" prefHeight="329.0" prefWidth="600.0">
         <columns>
@@ -14,11 +15,9 @@
             <TableColumn fx:id="genreColumn" prefWidth="205.0" text="Genre" />
         </columns>
     </TableView>
-    <Text fill="#0000005d" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Viewer Panel" wrappingWidth="203.17724609375">
-        <font>
-            <Font name="System Font" size="19.0" />
-        </font>
-    </Text>
+    <ImageView fx:id="LOGOutIMG" fitHeight="65.0" fitWidth="173.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@../logo/LOGO.png" />
+    </ImageView>
     <ChoiceBox fx:id="genreBox" layoutX="446.0" layoutY="24.0" onAction="#handleRefresh" prefHeight="27.0" prefWidth="140.0" value="All">
     <items>
         <FXCollections fx:factory="observableArrayList">
@@ -33,4 +32,7 @@
     </items>
     </ChoiceBox>
    <Button layoutX="346.0" layoutY="25.0" mnemonicParsing="false" onAction="#handleAddRequest" text="Add Request" />
+    <stylesheets>
+        <String fx:value="/Style.css" />
+    </stylesheets>
 </AnchorPane>
