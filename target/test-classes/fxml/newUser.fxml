@@ -53,4 +53,7 @@
                   opacity="0.87"/>
     <Text fx:id="registrationResponse" fill="#ff8100" layoutX="35.0" layoutY="297.0" strokeType="OUTSIDE"
           strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="530.22900390625"/>
+    <stylesheets>
+        <String fx:value="/Style.css" />
+    </stylesheets>
 </AnchorPane>

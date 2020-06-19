@@ -25,6 +25,7 @@ import static service.UserService.getUsers;
 
 public class AdminController implements Initializable {
     private static Stage stage;
+
     private static User selectedUser;
     @FXML
     private TableView<User> userTable;
