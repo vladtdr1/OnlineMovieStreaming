@@ -43,6 +43,7 @@ public class UploaderController implements Initializable {
 
 
     public void initialize(URL url, ResourceBundle r){
+        selectedMovie = null;
         titleColumn.setCellValueFactory(new PropertyValueFactory<Movie, String >("title"));
         yearColumn.setCellValueFactory(new PropertyValueFactory<Movie, String >("launchyear"));
         genreColumn.setCellValueFactory(new PropertyValueFactory<Movie, String >("genre"));

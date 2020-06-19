@@ -78,6 +78,14 @@ public class MovieService {
         persistMovies();
     }
 
+    public static void removeMovie(final String title)
+    {
+        for(int i=0;i<movies.size();i++)
+            if(movies.get(i).getTitle().equals(title))
+                movies.remove(i);
+        persistMovies();
+    }
+
     private static void checkMovieDoesNotAlreadyExist(String title, String oldTitle) throws MovieAlreadyExistsException{ //used for movies
         for (Movie m : movies) {
             if (Objects.equals(title, m.getTitle()))

@@ -65,6 +65,22 @@ public class EditMovie implements Initializable {
         }
     }
 
+    public void deleteButton(ActionEvent actionEvent) {
+        try {
+            removeMovie(getSelectedMovie().getTitle());
+            Parent p= FXMLLoader.load(getClass().getResource("/fxml/uploader.fxml"));
+            Scene scene=new Scene(p,600,400);
+            Stage window=(Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+            window.setScene(scene);
+            window.show();
+        }catch(IOException e) {
+            e.printStackTrace();
+        } catch (Exception e ) {
+            e.printStackTrace();
+            registrationResponse.setText(e.getMessage());
+        }
+    }
+
     public void onEnter(ActionEvent actionEvent) {
         okButton(actionEvent);
     }
