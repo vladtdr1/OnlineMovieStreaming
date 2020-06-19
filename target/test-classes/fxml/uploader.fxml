@@ -7,6 +7,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
+<?import java.lang.String?>
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.231" xmlns:fx="http://javafx.com/fxml" fx:controller="controller.UploaderController">
     <TableView fx:id="movieTable" layoutY="64.0" onMouseClicked="#handleMouseClicked" prefHeight="329.0" prefWidth="600.0">
         <columns>
@@ -20,6 +21,9 @@
             <Font name="System Font" size="19.0" />
         </font>
     </Text>
-   <Button layoutX="483.0" layoutY="25.0" mnemonicParsing="false" onAction="#handleViewRequestsButton" text="VIEW REQUESTS" />
-   <Button layoutX="385.0" layoutY="25.0" mnemonicParsing="false" onAction="#handleAddMovieButton" text="ADD MOVIE" />
+   <Button layoutX="483.0" layoutY="25.0" mnemonicParsing="false" onAction="#handleViewRequestsButton" text="View Requests" />
+   <Button layoutX="385.0" layoutY="25.0" mnemonicParsing="false" onAction="#handleAddMovieButton" text="Add Movie" />
+    <stylesheets>
+        <String fx:value="/Style.css" />
+    </stylesheets>
 </AnchorPane>
