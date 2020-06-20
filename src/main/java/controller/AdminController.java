@@ -80,6 +80,10 @@ public class AdminController implements Initializable {
         return selectedUser;
     }
 
+    public static void setSelectedUser(User user) {
+        selectedUser=user;
+    }
+
     public void handleMouseClicked(MouseEvent mouseEvent) {
         selectedUser=userTable.getSelectionModel().getSelectedItem();
     }
