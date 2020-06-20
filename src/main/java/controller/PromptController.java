@@ -15,6 +15,8 @@ public class PromptController {
     public void handleYesButton(ActionEvent actionEvent) {
         User u = AdminController.getSelectedUser();
         UserService.removeUser(u);
+        if(actionEvent==null)
+            return;
 
         Parent p;
         try { //this try-catch makes sure the users table gets updated by reopening it

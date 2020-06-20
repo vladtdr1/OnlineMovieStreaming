@@ -43,6 +43,14 @@ public class UserService {
         UserService.connectedUser = connectedUser;
     }
 
+    public static User getUser(String username)
+    {
+        for(User u:users)
+            if(u.getUsername().equals(username))
+                return u;
+        return null;
+    }
+
     public static void loadUsersFromFile() throws IOException {
         if (!Files.exists(USERS_PATH)) {
             FileUtils.copyURLToFile(UserService.class.getClassLoader().getResource("json/users.json"), USERS_PATH.toFile());
