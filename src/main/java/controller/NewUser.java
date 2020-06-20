@@ -21,15 +21,15 @@ import static service.UserService.addUser;
 
 public class NewUser {
     @FXML
-    private TextField usernameText;
+    public TextField usernameText;
     @FXML
-    private TextField passwordText;
+    public TextField passwordText;
     @FXML
-    private TextField emailText;
+    public TextField emailText;
     @FXML
-    private Text registrationResponse;
+    public Text registrationResponse;
     @FXML
-    private ChoiceBox roleText;
+    public ChoiceBox roleText;
 
     public void cancelButton(ActionEvent actionEvent) {
         try {
@@ -47,6 +47,8 @@ public class NewUser {
     public void okButton(ActionEvent actionEvent) {
         try {
             addUser(usernameText.getText(),passwordText.getText(), emailText.getText(), (String) roleText.getValue());
+            if (actionEvent==null)
+                return;
             Parent p= FXMLLoader.load(getClass().getResource("/fxml/admin.fxml"));
             Scene scene=new Scene(p,600,400);
             Stage window=(Stage)((Node)actionEvent.getSource()).getScene().getWindow();
