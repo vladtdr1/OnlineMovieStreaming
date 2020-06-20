@@ -20,7 +20,7 @@ import service.UserService;
 import static org.junit.Assert.assertEquals;
 
 
-public class AdminControllerTests extends ApplicationTest {
+public class AdminControllerTest extends ApplicationTest {
     private final String test_admin_username = "admin";
     private final String test_admin_password = "admin";
     private final String test_uploader_username = "uploader";
