@@ -6,8 +6,11 @@ import exception.*;
 import model.Movie;
 import model.Request;
 import model.User;
+import org.apache.commons.io.FileUtils;
 
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 import java.util.Objects;
@@ -17,6 +20,8 @@ import static controller.UploaderController.getSelectedMovie;
 
 public class MovieService {
 
+    private static final Path MOVIES_PATH = FileSystemService.getPathToFile("config" ,"movies.json");
+    private static final Path REQUESTS_PATH = FileSystemService.getPathToFile("config" ,"requests.json");
     private static List<Movie> movies;
     private static List<Request> requests;
     private static User connectedUser;
@@ -34,14 +39,20 @@ public class MovieService {
     }
 
     public static void loadMoviesFromFile() throws IOException {
+        if (!Files.exists(MOVIES_PATH)) {
+            FileUtils.copyURLToFile(MovieService.class.getClassLoader().getResource("json/movies.json"), MOVIES_PATH.toFile());
+        }
         ObjectMapper objectMapper = new ObjectMapper();
-        movies = objectMapper.readValue(Paths.get("src/sample.Main/java/sample/json/movies.json").toFile(), new TypeReference<List<Movie>>() {
+        movies = objectMapper.readValue(MOVIES_PATH.toFile(), new TypeReference<List<Movie>>() {
         });
     }
 
     public static void loadRequestsFromFile() throws IOException {
+        if (!Files.exists(REQUESTS_PATH)) {
+            FileUtils.copyURLToFile(MovieService.class.getClassLoader().getResource("json/requests.json"), REQUESTS_PATH.toFile());
+        }
         ObjectMapper objectMapper = new ObjectMapper();
-        requests = objectMapper.readValue(Paths.get("src/sample.Main/java/sample/json/requests.json").toFile(), new TypeReference<List<Request>>() {
+        requests = objectMapper.readValue(REQUESTS_PATH.toFile(), new TypeReference<List<Request>>() {
         });
     }
 
@@ -117,7 +128,7 @@ public class MovieService {
     private static void persistMovies() {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
-            objectMapper.writerWithDefaultPrettyPrinter().writeValue(Paths.get("src/sample.Main/java/sample/json/movies.json").toFile(), movies);
+            objectMapper.writerWithDefaultPrettyPrinter().writeValue(MOVIES_PATH.toFile(), movies);
         } catch (IOException e) {
             throw new CouldNotWriteMoviesException();
         }
@@ -125,7 +136,7 @@ public class MovieService {
     private static void persistRequests() {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
-            objectMapper.writerWithDefaultPrettyPrinter().writeValue(Paths.get("src/sample.Main/java/sample/json/requests.json").toFile(), requests);
+            objectMapper.writerWithDefaultPrettyPrinter().writeValue(REQUESTS_PATH.toFile(), requests);
         } catch (IOException e) {
             throw new CouldNotWriteMoviesException();
         }
