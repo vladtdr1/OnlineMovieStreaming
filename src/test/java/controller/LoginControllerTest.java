@@ -21,7 +21,7 @@ import service.UserService;
 import static org.junit.Assert.assertEquals;
 
 
-public class LoginControllerTests extends ApplicationTest {
+public class LoginControllerTest extends ApplicationTest {
     private final String test_admin_username = "admin";
     private final String test_admin_password = "admin";
     private final String test_uploader_username = "uploader";
