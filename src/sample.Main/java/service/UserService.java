@@ -10,11 +10,14 @@ import exception.PasswordFieldEmptyException;
 import exception.UserDoesNotExistException;
 import exception.UsernameAlreadyExistsException;
 import exception.UsernameFieldEmptyException;
+import org.apache.commons.io.FileUtils;
 
 import java.io.IOException;
 
 
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -25,6 +28,7 @@ import java.util.Objects;
 
 public class UserService {
 
+    private static final Path USERS_PATH = FileSystemService.getPathToFile("config" ,"users.json");
     private static List<User> users;
     private static User connectedUser;
 
@@ -40,8 +44,11 @@ public class UserService {
     }
 
     public static void loadUsersFromFile() throws IOException {
+        if (!Files.exists(USERS_PATH)) {
+            FileUtils.copyURLToFile(UserService.class.getClassLoader().getResource("json/users.json"), USERS_PATH.toFile());
+        }
         ObjectMapper objectMapper = new ObjectMapper();
-        users = objectMapper.readValue(Paths.get("src/sample.Main/java/sample/json/users.json").toFile(), new TypeReference<List<User>>() {
+        users = objectMapper.readValue(USERS_PATH.toFile(), new TypeReference<List<User>>() {
         });
     }
 
@@ -79,7 +86,7 @@ public class UserService {
     private static void persistUsers() {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
-            objectMapper.writerWithDefaultPrettyPrinter().writeValue(Paths.get("src/sample.Main/java/sample/json/users.json").toFile(), users);
+            objectMapper.writerWithDefaultPrettyPrinter().writeValue(USERS_PATH.toFile(), users);
         } catch (IOException e) {
             throw new CouldNotWriteUsersException();
         }
