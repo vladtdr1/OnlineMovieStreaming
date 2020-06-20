@@ -20,8 +20,8 @@ import static controller.UploaderController.getSelectedMovie;
 
 public class MovieService {
 
-    private static final Path MOVIES_PATH = FileSystemService.getPathToFile("config" ,"movies.json");
-    private static final Path REQUESTS_PATH = FileSystemService.getPathToFile("config" ,"requests.json");
+    private static Path MOVIES_PATH = FileSystemService.getPathToFile("config" ,"movies.json");
+    private static Path REQUESTS_PATH = FileSystemService.getPathToFile("config" ,"requests.json");
     private static List<Movie> movies;
     private static List<Request> requests;
     private static User connectedUser;

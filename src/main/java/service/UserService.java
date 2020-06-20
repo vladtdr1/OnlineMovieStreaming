@@ -28,7 +28,7 @@ import java.util.Objects;
 
 public class UserService {
 
-    private static final Path USERS_PATH = FileSystemService.getPathToFile("config" ,"users.json");
+    private static Path USERS_PATH = FileSystemService.getPathToFile("config" ,"users.json");
     private static List<User> users;
     private static User connectedUser;
 
