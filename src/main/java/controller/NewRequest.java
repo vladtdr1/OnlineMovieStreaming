@@ -20,11 +20,11 @@ import static service.UserService.getConnectedUser;
 
 public class NewRequest {
     @FXML
-    private TextField yearText;
+    public TextField yearText;
     @FXML
-    private TextField titleText;
+    public TextField titleText;
     @FXML
-    private Text registrationResponse;
+    public Text registrationResponse;
 
     public void cancelButton(ActionEvent actionEvent) {
         try {

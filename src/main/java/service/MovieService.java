@@ -150,4 +150,11 @@ public class MovieService {
         }
     }
 
+    public static Request getRequest(String title)
+    {
+        for(Request r:requests)
+            if(r.getTitle().equals(title))
+                return r;
+        return null;
+    }
 }
