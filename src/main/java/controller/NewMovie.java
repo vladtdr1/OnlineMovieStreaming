@@ -14,6 +14,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import model.Movie;
+import model.User;
 
 import java.io.IOException;
 
@@ -24,17 +26,17 @@ import static service.UserService.getConnectedUser;
 
 public class NewMovie {
     @FXML
-    private TextField urlText;
+    public TextField urlText;
     @FXML
-    private TextField yearText;
+    public TextField yearText;
     @FXML
-    private TextField titleText;
+    public TextField titleText;
     @FXML
-    private TextArea descriptionText;
+    public TextArea descriptionText;
     @FXML
-    private Text registrationResponse;
+    public Text registrationResponse;
     @FXML
-    private ChoiceBox genreText;
+    public ChoiceBox genreText;
 
     public void cancelButton(ActionEvent actionEvent) {
         try {
@@ -48,6 +50,7 @@ public class NewMovie {
             e.printStackTrace();
         }
     }
+
 
     public void okButton(ActionEvent actionEvent) {
         try {

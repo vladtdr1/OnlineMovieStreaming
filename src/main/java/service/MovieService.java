@@ -56,6 +56,14 @@ public class MovieService {
         });
     }
 
+    public static Movie getMovie(String title)
+    {
+        for(Movie m:movies)
+            if(m.getTitle().equals(title))
+                return m;
+        return null;
+    }
+
     public static void addMovie(String title, String url, String genre,String description, String uploader, String year) throws TitleFieldEmptyException, UrlFieldEmptyException, MovieAlreadyExistsException {
         checkTitleFieldIsNotEmpty(title);
         checkUrlFieldIsNotEmpty(url);
