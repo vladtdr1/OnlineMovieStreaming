@@ -84,7 +84,15 @@ public class ViewerController implements Initializable {
     }
 
     public void handleRefresh(ActionEvent mouseEvent) {
-        initialize(null,null);
+        titleColumn.setCellValueFactory(new PropertyValueFactory<Movie, String >("title"));
+        yearColumn.setCellValueFactory(new PropertyValueFactory<Movie, String >("launchyear"));
+        genreColumn.setCellValueFactory(new PropertyValueFactory<Movie, String >("genre"));
+        List<Movie> movies = getMovies();
+        ObservableList<Movie> MovieList = FXCollections.observableArrayList();
+        for(Movie m: movies)
+            if(m.getGenre().equals(genreBox.getValue())||genreBox.getValue().equals("All"))
+                MovieList.add(m);
+        movieTable.setItems(MovieList);
     }
 
     public void handleAddRequest(ActionEvent actionEvent) {

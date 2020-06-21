@@ -28,7 +28,7 @@ import java.util.Objects;
 
 public class UserService {
 
-    private static final Path USERS_PATH = FileSystemService.getPathToFile("config" ,"users.json");
+    private static Path USERS_PATH = FileSystemService.getPathToFile("config" ,"users.json");
     private static List<User> users;
     private static User connectedUser;
 
@@ -41,6 +41,14 @@ public class UserService {
     }
     public static void setConnectedUser(User connectedUser) {
         UserService.connectedUser = connectedUser;
+    }
+
+    public static User getUser(String username)
+    {
+        for(User u:users)
+            if(u.getUsername().equals(username))
+                return u;
+        return null;
     }
 
     public static void loadUsersFromFile() throws IOException {
@@ -92,7 +100,7 @@ public class UserService {
         }
     }
 
-    private static String encodePassword(String salt, String password) {
+    public static String encodePassword(String salt, String password) {
         MessageDigest md = getMessageDigest();
         md.update(salt.getBytes(StandardCharsets.UTF_8));
 

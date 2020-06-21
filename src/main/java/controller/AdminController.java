@@ -31,13 +31,13 @@ public class AdminController implements Initializable {
 
     private static User selectedUser;
     @FXML
-    private TableView<User> userTable;
+    public TableView<User> userTable;
     @FXML
-    private TableColumn<User, String> usernameColumn;
+    public TableColumn<User, String> usernameColumn;
     @FXML
-    private TableColumn<User, String> emailColumn;
+    public TableColumn<User, String> emailColumn;
     @FXML
-    private TableColumn<User, String> roleColumn;
+    public TableColumn<User, String> roleColumn;
     @FXML
     private ImageView LOGOutIMG;
 
@@ -78,6 +78,10 @@ public class AdminController implements Initializable {
 
     public static User getSelectedUser() {
         return selectedUser;
+    }
+
+    public static void setSelectedUser(User user) {
+        selectedUser=user;
     }
 
     public void handleMouseClicked(MouseEvent mouseEvent) {
